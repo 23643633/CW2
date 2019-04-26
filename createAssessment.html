@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Create Assessment</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <ul>
+  <li><a href="home.html">Home</a></li>
+  <li><a href="existingDegrees.html">Degrees</a></li>
+  <li><a href="existingMods.html">Modules</a></li>
+  <li><a class="active" href="existingAssessments.html">Assessments</a></li>
+  </ul>
+  <h1>Create Assessment</h1>
+
+  <form action="#" id="myForm">
+    Assessment title:<br>
+    <input type="text" name="assesstitle" value="">
+    <br>
+    Number:<br>
+    <input type="number" name="assessnum" value="">
+    <br>
+    Volume:<br>
+    <input type="number" name="assessvol" value="">
+    <br>
+    Weighting:<br>
+    <input type="number" name="assessweight" value="">
+    <br>
+    Submission date:<br>
+    <input type="datetime-local" name="assessdate" value="">
+    <br>
+    LO1:<br>
+    <input type="text" name="LO1" value="">
+    <br>
+    LO2:<br>
+    <input type="text" name="LO2" value="">
+    <br>
+    LO3:<br>
+    <input type="text" name="LO3" value="">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+var formData = JSON.stringify($("#myForm").serializeArray());
+var fs = require('fs');
+fs.writeFile('assessments.json', formData, 'utf8', callback);
+$.ajax({
+  type: "POST",
+  url: "assessments.json",
+  data: formData,
+  success: function(){},
+  dataType: "json",
+  contentType : "application/json"
+});
+</script>
+<body>
+</html>
