@@ -1,33 +1,11 @@
 [
   {
-    "Name": "Undergraduate",
-    "Course":"Web Development",
-    "Module": {
-      "Learning_outcomes":["LO1", "LO2"],
-      "Assignment":["CW1", "CW2"],
-      "Volume":["1000 words", "4000 words"],
-      "weights":["20%", "80%"]
-    }
-  },
-  {
-    "Name": "Post-Graduate",
-    "Course":"Big Data",
-    "Module": {
-    "Learning_outcomes":["LO1", "LO2"],
-    "Assignment":["CW1", "CW2"],
-    "Volume":["1000 words", "4000 words"],
-    "weights":["20%", "80%"]
-    }
-  },
-  {
-    "Name": "Research",
-    "Course":"Data Mining",
-    "Module": {
-      "Learning_outcomes":["LO1", "LO2"],
-      "Assignment":["CW1", "CW2"],
-      "Volume":["1000 words", "4000 words"],
-      "weights":["20%", "80%"]
-    }
+    "degcode": "2169",
+    "degtitle":"Web Design",
+    "degleader":"Dave Walsh",
+    "LO1":"Learning OB1",
+    "LO2":"Learning OB2",
+    "LO3":"Learning OB3"
   }
-  
+
 ]

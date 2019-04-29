@@ -7,7 +7,12 @@
   <title>Create Assessment</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+
 </head>
+
+
 <body>
   <ul>
   <li><a href="home.html">Home</a></li>
@@ -17,7 +22,17 @@
   </ul>
   <h1>Create Assessment</h1>
 
-  <form action="#" id="myForm">
+  <script>
+var assessment_list = {}
+
+function createAssessment(form) {
+assessment_list[form.degcode.value] = {title: form.degtitle.value, leader: form.degleader.value, lo1: form.lo1.value , lo2: form.lo2.value , lo3: form.lo3.value};
+document.getElementById("test").innerHTML = JSON.stringify(assessment_list);
+return false;
+}
+</script>
+
+  <form action="#" id="createAssessment">
     Assessment title:<br>
     <input type="text" name="assesstitle" value="">
     <br>
@@ -44,18 +59,8 @@
     <br><br>
     <input type="submit" value="Submit">
   </form>
-  <script>
-var formData = JSON.stringify($("#myForm").serializeArray());
-var fs = require('fs');
-fs.writeFile('assessments.json', formData, 'utf8', callback);
-$.ajax({
-  type: "POST",
-  url: "assessments.json",
-  data: formData,
-  success: function(){},
-  dataType: "json",
-  contentType : "application/json"
-});
-</script>
+
+  <p id="test"></p>
+
 <body>
 </html>

@@ -17,7 +17,16 @@
   </ul>
   <h1>Create Degree</h1>
 
-  <form method="post">
+  <script>
+var degree_list = {}
+
+function createDegree(form) {
+degree_list[form.degcode.value] = {title: form.degtitle.value, leader: form.degleader.value, lo1: form.lo1.value , lo2: form.lo2.value , lo3: form.lo3.value};
+document.getElementById("test").innerHTML = JSON.stringify(degree_list);
+return false;
+}
+</script>
+  <form onsubmit="return createDegree(this)" method="post">
     Degree code:<br>
     <input type="number" name="degcode" value="9999">
     <br>
@@ -28,15 +37,16 @@
     <input type="text" name="degleader" value="">
     <br>
     LO1:<br>
-    <input type="text" name="LO1" value="">
+    <input type="text" name="lo1" value="">
     <br>
     LO2:<br>
-    <input type="text" name="LO2" value="">
+    <input type="text" name="lo2" value="">
     <br>
     LO3:<br>
-    <input type="text" name="LO3" value="">
+    <input type="text" name="lo3" value="">
     <br><br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" onclick="console.log(degree_list)">
   </form>
+<p id="test"></p>
 <body>
 </html>
