@@ -23,16 +23,16 @@
   <h1>Create Assessment</h1>
 
   <script>
-var assessment_list = {}
+var assessment_list = {}//assessment list is created
 
-function createAssessment(form) {
-assessment_list[form.degcode.value] = {title: form.degtitle.value, leader: form.degleader.value, lo1: form.lo1.value , lo2: form.lo2.value , lo3: form.lo3.value};
-document.getElementById("test").innerHTML = JSON.stringify(assessment_list);
+function createAssessment(form) {//function used to create a new assessment
+assessment_list[form.assesstitle.value] = {number: form.assessnum.value, volume: form.assessvol.value, weighting: form.assessweight.value, submission: form.assessdate.value, lo1: form.lo1.value , lo2: form.lo2.value , lo3: form.lo3.value};//items from form are added to the list
+document.getElementById("test").innerHTML = JSON.stringify(assessment_list);//items are added tp page by turning json object to string and writing to the desired location
 return false;
 }
 </script>
 
-  <form action="#" id="createAssessment">
+  <form onsubmit="return createAssessment(this)" action="#" id="createAssessment">
     Assessment title:<br>
     <input type="text" name="assesstitle" value="">
     <br>
@@ -49,13 +49,13 @@ return false;
     <input type="datetime-local" name="assessdate" value="">
     <br>
     LO1:<br>
-    <input type="text" name="LO1" value="">
+    <input type="text" name="lo1" value="">
     <br>
     LO2:<br>
-    <input type="text" name="LO2" value="">
+    <input type="text" name="lo2" value="">
     <br>
     LO3:<br>
-    <input type="text" name="LO3" value="">
+    <input type="text" name="lo3" value="">
     <br><br>
     <input type="submit" value="Submit">
   </form>
